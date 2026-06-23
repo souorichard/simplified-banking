@@ -3,6 +3,8 @@ package com.simplifiedBanking.domain.user;
 import java.math.BigInteger;
 import java.util.UUID;
 
+import com.simplifiedBanking.dtos.UserRequest;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -14,10 +16,12 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
 @Entity(name = "users")
@@ -42,4 +46,14 @@ public class User {
 
   @Enumerated(EnumType.STRING)
   private UserType type;
+
+  public User(UserRequest data) {
+    this.firstName = data.firstName();
+    this.lastName = data.lastName();
+    this.document = data.document();
+    this.email = data.email();
+    this.password = data.password();
+    this.balance = data.balance();
+    this.type = data.type();
+  }
 }
