@@ -1,0 +1,46 @@
+@baseUrl = http://localhost:8080
+
+###
+
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Acme",
+  "document": "12345678910",
+  "email": "john@example.com",
+  "password": "12345678",
+  "balance": 100000,
+  "type": "COMMON"
+}
+
+###
+
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "firstName": "Jenny",
+  "lastName": "Acme",
+  "document": "123456789101",
+  "email": "jenny@example.com",
+  "password": "12345678",
+  "balance": 100000,
+  "type": "MERCHANT"
+}
+
+###
+
+GET {{baseUrl}}/users
+
+###
+
+POST {{baseUrl}}/transactions
+Content-Type: application/json
+
+{
+  "value": 1000,
+  "senderId": "79084705-b132-4ef4-8246-9228581b480d",
+  "receiverId": "25dbeabf-c128-4fdc-91bd-918c311739ef"
+}
